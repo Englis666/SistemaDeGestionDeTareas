@@ -1,0 +1,20 @@
+{
+    "name": "acnth/sistema-de-gestion-de-tareas",
+    "description": "Sistema de gestion de tareas",
+    "autoload": {
+        "psr-4": {
+            "Acnth\\SistemaDeGestionDeTareas\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Acnth"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "vlucas/phpdotenv": "^5.6@dev",
+        "firebase/php-jwt": "dev-main",
+        "php-di/php-di": "dev-master"
+    }
+}
