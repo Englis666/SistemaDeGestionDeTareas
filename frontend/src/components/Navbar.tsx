@@ -34,6 +34,9 @@ export default function Navbar() {
                     <Button color="inherit" onClick={() => navigate("/Tasks")}>
                         My Tasks
                     </Button>
+                    <Button color="inherit" onClick={() => navigate("/createTask")}>
+                        Create Task
+                    </Button>
                 </Box>
             </Toolbar>
         </AppBar>
