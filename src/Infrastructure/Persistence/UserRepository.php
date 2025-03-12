@@ -27,4 +27,6 @@ class UserRepository implements UserRepositoryInterface {
 
         return $data ? new User($data['idUser'], $data['email'], $data['password']) : null;
     }
+
+    
 }
