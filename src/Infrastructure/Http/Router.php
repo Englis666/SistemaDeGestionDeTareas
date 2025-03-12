@@ -32,6 +32,7 @@ class Router {
         $tokenService = new TokenService($secretKey);
 
         $loginUserUseCase = new LoginUserUseCase($userRepository, $passwordHasher, $tokenService);
+        
         $userController = new UserController($registerUserUseCase, $loginUserUseCase);
 
         $requestUri = $_SERVER['REQUEST_URI'];
@@ -43,6 +44,16 @@ class Router {
         }
         if ($method === 'POST' && $requestUri === '/SistemaDeGestionDeTareas/public/login') { 
             $userController->login();
+            return;
+        }
+        if ($method === 'POST' && $requestUri === '/SistemaDeGestionDeTareas/public/CreateTask'){
+            $taskController->createTask();
+            return;
+        }
+
+
+        if($method === "GET" && $requestUri === '/SistemaDeGestionDeTareas/public/getMyTasks'){
+            $taskController->getMyTask();
             return;
         }
 
