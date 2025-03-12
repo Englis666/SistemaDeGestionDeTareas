@@ -22,8 +22,6 @@ class LoginUserUseCase {
             return null;
         }
         return $this->tokenService->generate($user->getIdUser());
-        var_dump($token); die; // Verifica si se genera el token antes de devolverlo
-
     return $token;
     }
 }
