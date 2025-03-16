@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 import { TextField, Button, Container, Typography, Box, Paper } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
@@ -9,32 +10,28 @@ export default function Login() {
 
     const navigate = useNavigate();
 
-    // Función para enviar los datos al backend
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
-
         setError(null);
 
         try {
-            const response = await fetch("http://localhost/SistemaDeGestionDeTareas/public/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ email, password }),
-            });
+            const response = await axios.post(
+                "http://localhost/SistemaDeGestionDeTareas/public/login",
+                { email, password },
+                { headers: { "Content-Type": "application/json" } }
+            );
 
-            if (!response.ok) {
-                const data = await response.json();
-                throw new Error(data.message || "Error al registrar");
+            // Si la autenticación es exitosa
+            if (response.status === 200) {
+                console.log("Inicio de sesión exitoso");
+                navigate("/DashBoardTask");
             }
-            navigate("/DashBoardTask");
         } catch (error: any) {
-            setError(error.message);
-            console.error("Error al registrar:", error);
+            // Manejo de errores
+            setError(error.response?.data?.message || "Error al iniciar sesión");
+            console.error("Error al iniciar sesión:", error);
         }
     }
-
 
     return (
         <Container
