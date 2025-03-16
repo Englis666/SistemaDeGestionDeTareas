@@ -57,6 +57,11 @@ class Router {
             return;
         }
 
+        if($method === "GET" && $requestUri === '/SistemaDeGestionDeTareas/public/GetMyTypesOfTask'){
+            $taskController->getMyTypesOfTask();
+            return;
+        }
+
         JsonResponse::send(["error" => "Ruta no encontrada: $requestUri"], 404);
     }
 }

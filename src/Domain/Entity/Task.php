@@ -3,12 +3,13 @@ namespace Acnth\SistemaDeGestionDeTareas\Domain\Entity;
 
 class Task{
     private ?int $idTask;
+    private int $idTypesOfClass;
     private string $title;
     private string $description;
-    private date $startDate;
-    private date $finishDate;
+    private \DateTimeInmutable $startDate;
+    private \DateTimeInmutable $finishDate;
 
-    public function __construct(?int $idTask, string $title, string $description, date $startDate, date $finishDate){
+    public function __construct(?int $idTask, string $title, string $description, \DateTimeInmutable $startDate, \DateTimeInmutable $finishDate){
         $this->idTask = $idTask;
         $this->title = $title;
         $this->description = $description;
@@ -25,11 +26,11 @@ class Task{
     public function getDescription(): string{
         return $this->description;
     }
-    public function getStartDate(): date{
-        return $startDate;
+    public function getStartDate(): \DateTimeInmutable {
+        return $this->$startDate;
     }
-    public function getFinishDate(): date {
-        return $finishDate;
+    public function getFinishDate(): \DateTimeInmutable {
+        return $this->$finishDate;
     }
 
 

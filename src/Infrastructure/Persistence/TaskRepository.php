@@ -11,6 +11,26 @@ class TaskRepository implements TaskRepositoryInterface {
         $this->connection = $connection;
     }
 
+    public function getTaskByUserId(int $idUser): array{
+        $stmt = $this->db->prepare("SELECT * FROM task WHERE idUser = :idUser");
+        $stmt->bindParam(":idUser", $idUser , PDO::PARAM_INT);
+        $stmt->execute();
+        $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+        $tasks = [];
+        foreach ($tasksData as $taskData){
+            $tasks[] = new Task(
+                $taskData['idtask'],
+                $taskData['idUser'],
+                $taskData['title'],
+                $taskData['description'],
+                new \DateTimeInmutable($taskData['startDate']),
+                new \DateTimeInmutable($taskData['finishDate'])
+            );
+        }
+        return $tasks;
+    }
+
     public function CreateTask(string $task): ?Task{
         $stmt = $this->connection->preparee("INSERT INTO tasks (title, startDate, finishDate, description) VALUES (:title , :startDate, :finishDate , :description");
         return $stmt->execute([
@@ -20,5 +40,6 @@ class TaskRepository implements TaskRepositoryInterface {
             ':description' =>$task->getDescription(),
         ]);
     }
+    
 
 }
