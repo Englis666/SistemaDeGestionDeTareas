@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 import { TextField, Button, Container, Typography, Box, Paper } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
@@ -11,29 +12,24 @@ export default function Register() {
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
         try {
-            // Enviar datos al backend
-            const response = await fetch("http://localhost/SistemaDeGestionDeTareas/public/register", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ email, password }),
+            const { data } = await axios.post("http://localhost/SistemaDeGestionDeTareas/public/register", {
+                email,
+                password
             });
 
-            const result = await response.json();
-            if (response.ok) {
-                console.log("Usuario registrado correctamente");
-                navigate("/login");  // Redirigir al login
+            console.log("Usuario registrado correctamente:", data);
+            navigate("/login");
+        } catch (error: any) {
+            if (error.response) {
+                console.error("Error al registrar:", error.response.data.error || "Error desconocido");
             } else {
-                console.error("Error al registrar:", result.error || "Error desconocido");
+                console.error("Error en la conexión con el servidor");
             }
-        } catch (error) {
-            console.error("Error al registrar:", error);
         }
     }
 
     function handleRedirectToLogin() {
-        navigate("/login"); // Cambia la ruta si tu login está en otra URL
+        navigate("/login");
     }
 
     return (
