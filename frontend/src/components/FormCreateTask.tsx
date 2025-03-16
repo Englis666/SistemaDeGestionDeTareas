@@ -45,14 +45,14 @@ export default function FormCreateTask() {
         <Container maxWidth="xs" sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "100vh" }}>
             <Paper elevation={3} sx={{ p: 4, borderRadius: 2, width: "100%", display: "flex", flexDirection: "column", alignItems: "center" }}>
                 <Typography variant="h5" gutterBottom>
-                    Form 4 Create Task
+                    Formulario para crear una tarea
                 </Typography>
 
                 <Box component="form" onSubmit={handleSubmit} sx={{ width: "100%" }}>
                     <TextField
                         fullWidth
                         margin="normal"
-                        label="Type of task"
+                        label="Tipo de tarea"
                         type="text"
                         variant="outlined"
                         value={title}
@@ -61,7 +61,7 @@ export default function FormCreateTask() {
                     <TextField
                         fullWidth
                         margin="normal"
-                        label="Title of the task"
+                        label="Titulo de la tarea"
                         type="text"
                         variant="outlined"
                         value={title}
@@ -70,7 +70,7 @@ export default function FormCreateTask() {
                     <TextField
                         fullWidth
                         margin="normal"
-                        label="Description of the task"
+                        label="Descripcion de la tarea"
                         type="text"
                         variant="outlined"
                         value={title}
@@ -79,7 +79,7 @@ export default function FormCreateTask() {
                     <TextField
                         fullWidth
                         margin="normal"
-                        label="Day of start at the task"
+                        label="Dia de inicio de la tarea"
                         type="text"
                         variant="outlined"
                         value={title}
@@ -88,18 +88,18 @@ export default function FormCreateTask() {
                     <TextField
                         fullWidth
                         margin="normal"
-                        label="Last date of the task"
+                        label="Ultimo dia de realizacion de la tarea"
                         type="text"
                         variant="outlined"
                         value={title}
                         onChange={(e) => setFinishDate(e.target.value)}
                     />
                     <Button variant="contained" color="primary" fullWidth sx={{ mt: 2 }} onClick={handleSubmit}>
-                        Create the task
+                        Crear Tarea
                     </Button>
                 </Box>
                 <Button variant="contained" color="primary" fullWidth sx={{ mt: 2 }} onClick={handleRedirectToHome}>
-                    Return to List of task
+                    Volver al inicio de lista de tareas
                 </Button>
 
 
