@@ -23,19 +23,19 @@ export default function Navbar() {
             <Toolbar sx={{ justifyContent: "space-between", px: 2 }}>
                 {/* Nombre del sistema */}
                 <Typography variant="h6" fontWeight="bold">
-                    TaN Task
+                    Sistema de tareas By Acnth
                 </Typography>
 
                 {/* Botones de navegación */}
                 <Box sx={{ display: "flex", gap: 2 }}>
                     <Button color="inherit" onClick={() => navigate("/")}>
-                        Home
+                        Inicio
                     </Button>
                     <Button color="inherit" onClick={() => navigate("/Tasks")}>
-                        My Tasks
+                        Mis tareas
                     </Button>
                     <Button color="inherit" onClick={() => navigate("/createTask")}>
-                        Create Task
+                        Crear una tarea
                     </Button>
                 </Box>
             </Toolbar>
