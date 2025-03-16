@@ -7,8 +7,12 @@ import {
     CardActions,
     Button
 } from "@mui/material";
+import TypesOfTask from "./TypesOfTask";
+
 
 export default function Task() {
+
+
     return (
         <Container
             maxWidth={false}
@@ -21,22 +25,7 @@ export default function Task() {
                 py: 5,
             }}
         >
-            {/* Tipos de Tareas */}
-            <Typography variant="h4" color="primary" fontWeight="bold" textAlign="center" mb={4}>
-                Tipos de Tareas
-            </Typography>
-            <Grid container spacing={3} justifyContent="center" sx={{ width: "90%" }}>
-                <Grid item xs={12} sm={6} md={4} lg={3}>
-                    <Card sx={{ boxShadow: 3, borderRadius: 2, flexGrow: 1 }}>
-                        <CardContent>
-                            <Typography variant="h6" gutterBottom>
-                                Tipo de Tarea
-                            </Typography>
-                            <Typography color="textSecondary">Categoría de tarea</Typography>
-                        </CardContent>
-                    </Card>
-                </Grid>
-            </Grid>
+            <TypesOfTask />
 
             {/* Todas las Tareas */}
             <Typography variant="h4" color="primary" fontWeight="bold" textAlign="center" mt={5} mb={4}>
